@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="508C7A72-BD84-45BD-85AC-FB0135132E22" ModuleId="SignalRSandbox" />
+  <Module PersistentId="SignalR, Version=0.3.2.0, Culture=neutral, PublicKeyToken=null" ModuleId="SignalR" />
+</Modules>

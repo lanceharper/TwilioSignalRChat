@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    $(function () {
+
+        // Proxy created on the fly
+        var chat = $.connection.chat;
+        
+        // Declare a function on the chat hub so the server can invoke it
+        chat.addMessage = function (name, message) {
+            $('#messages').append('<li>' + name + ': ' + message + '</li>');
+        };
+
+        $("#broadcast").click(function () {
+            
+            
+            chat.name = $('#name').val();
+            
+            // Call the chat method on the server
+            chat.send($('#msg').val());
+        });
+
+        // Start the connection
+        $.connection.hub.start();
+
+    });
+</script>
+<div>
+    <label for="name" style="display:block;">Name</label>
+    <input type="text" id="name" />
+</div>
+<div>
+    <label for="msg" style="display:block;">Message</label>
+    <input type="text" id="msg" /><input type="button" id="broadcast" value="Send" />
+</div>
+
+<ul id="messages">
+</ul>
